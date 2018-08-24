@@ -51,7 +51,7 @@ alias vpass='cat /opt/vsd/install/vsd_password.ini'
 
 #proxysql check commands
 alias psql='function _proxysql(){ myenv ;mysql -u admin -p$ENV_VSD_PROXYSQLPWD -h 127.0.0.1 -P 6032 -e "$1"; }; _proxysql'
-alias psql='function _proxyMysql(){ myenv ;mysql -u cnauser -p$ENV_VSD_CNAPWD -P 6033 -e "$1"; }; _proxyMysql'
+alias pmysql='function _proxyMysql(){ myenv ;mysql -u cnauser -p$ENV_VSD_CNAPWD -P 6033 -e "$1"; }; _proxyMysql'
 alias pser='myenv ;mysql -u admin -p$ENV_VSD_PROXYSQLPWD -h 127.0.0.1 -P 6032 -e "select * from runtime_mysql_servers order by hostgroup_id"'
 alias psche='myenv ;mysql -u admin -p$ENV_VSD_PROXYSQLPWD -h 127.0.0.1 -P 6032 -e "select * from scheduler"'
 alias pusers='myenv ;mysql -u admin -p$ENV_VSD_PROXYSQLPWD -h 127.0.0.1 -P 6032 -e "select * from runtime_mysql_users"'
