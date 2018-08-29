@@ -45,6 +45,7 @@ alias mce='echo "EjabberdStatus: ";/opt/vsd/sysmon/ejabberdStatus.py'
 alias mca='/opt/vsd/sysmon/activemqStatus.py'
 alias mcac='/opt/vsd/sysmon/activemqStatus.py -c'
 alias mcej='echo "EjbcaStatus:"; /opt/vsd/sysmon/ejbca-status.py'
+alias mrntp='date; service ntpd stop ; sleep 1 ; service ntpd start ; date; watch ntpstat'
 
 alias cmysql='echo "check Mysql :"; mysql -e "select 1"'
 alias vpass='cat /opt/vsd/install/vsd_password.ini'
