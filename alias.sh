@@ -61,6 +61,7 @@ alias pconpool='myenv ;mysql -u admin -p$ENV_VSD_PROXYSQLPWD -h 127.0.0.1 -P 603
 alias lproxy="clear; tail -1000f /var/lib/proxysql/proxysql.log"
 alias vphost="cat /var/lib/proxysql/host_priority.conf"
 alias vpadmin="cat /etc/proxysql-admin.cnf"
+alias plite="sqlite3 /var/lib/proxysql/proxysql.db"
 
 
 #ejabberd
