@@ -63,6 +63,7 @@ alias vphost="cat /var/lib/proxysql/host_priority.conf"
 alias vpadmin="cat /etc/proxysql-admin.cnf"
 alias plite="sqlite3 /var/lib/proxysql/proxysql.db"
 alias yboot="/opt/vsd/sysmon/bootPercona.py --force"
+alias ywstatus="mysql -e \"select * from information_schema.GLOBAL_STATUS where VARIABLE_NAME LIKE 'wsrep_ready' OR VARIABLE_NAME LIKE 'wsrep_incoming_addresses' OR VARIABLE_NAME LIKE 'wsrep_cluster_size' OR VARIABLE_NAME LIKE 'wsrep_local_state' OR VARIABLE_NAME LIKE 'wsrep_local_state_comment'\""
 
 
 #ejabberd
