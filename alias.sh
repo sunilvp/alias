@@ -13,52 +13,77 @@ myenv ( )
 }
 
 function getPid() {
-	if [[ $1 == "amq" ]]; then
+	if [[ $1 == "amq" || $1 == "a" || $1 == "activemq" ]]; then
 		echo "Activemq Pid:"
 		printPid "activemq.jar start"
-        elif [[ $1 == "jboss" ]]; then
-    	        echo "Jboss Pid:"
+		echo "Pid Details:"
+		printPidDetails "activemq.jar start"
+    elif [[ $1 == "jboss" || $1 == "j" ]]; then
+    	echo "Jboss Pid:"
 		printPid "jboss.server.base.dir=/opt/vsd/jboss/standalone"
-	elif [[ $1 == "mysql" ]] \
-		&& [[ -f /var/run/mysql/mysql.pid ]]; then
-		echo "Mysql Pid:"
-		cat /var/run/mysql/mysql.pid
-	elif [[ $1 == "zoo" ]] \
-		&& [[ -f /var/run/zookeeper/zookeeper-server.pid ]]; then
-		echo "zookeeper Pid:"
-		cat /var/run/zookeeper/zookeeper-server.pid
-	elif [[ $1 == "ej" ]]; then
+		echo "Pid Details:"
+		printPidDetails "jboss.server.base.dir=/opt/vsd/jboss/standalone"
+	elif [[ $1 == "ej" || $1 == "ejabberd" || $1 == "e" ]]; then
 		echo "Ejabberd Pid:"
 		printPid "/opt/ejabberd/bin/beam.smp"
+		echo "Pid Details:"
+		printPidDetails "/opt/ejabberd/bin/beam.smp"
 	elif [[ $1 == "tca" ]]; then
 		echo "TCA Pid:"
 		printPid "AREServer"
+		echo "Pid Details:"
+		printPidDetails "AREServer"
 	elif [[ $1 == "stats" ]]; then
 		echo "Stats Pid:"
 		printPid "StatsCollectorServer"
-	elif [[ $1 == "key" ]]; then
+		echo "Pid Details:"
+		printPidDetails	"StatsCollectorServer"
+	elif [[ $1 == "key" || $1 == "keyserver" || $1 == "k" ]]; then
 		echo "Keyserver Pid:"
 		printPid "KeyServerController"
-	elif [[ $1 == "infi" ]]; then
+		echo "Pid Details:"
+		printPidDetails "KeyServerController"
+	elif [[ $1 == "infi" || $1 == "i" ]]; then
 		echo "Infinispan Pid:"
 		printPid "infinispan/modules"
-	elif [[ $1 == "med" ]]; then
+		echo "Pid Details:"
+		printPidDetails	"infinispan/modules"
+	elif [[ $1 == "med" || $1 == "mediator" || $1 == "m" ]]; then
 		echo "Mediator Pid:"
-		printPid "MediationController"	
-	elif [[ $1 == "proxysql" ]]; then
+		printPid "MediationController"
+		echo "Pid Details:"
+		printPidDetails	"MediationController"
+	elif [[ $1 == "proxysql" || $1 == "p" ]]; then
 		echo "Proxysql Pid:"
-		printPidParentPidName "/usr/bin/proxysql -c /etc/proxysql.cnf -D /var/lib/proxysql"	
+		printPidParentPidName "/usr/bin/proxysql -c /etc/proxysql.cnf -D /var/lib/proxysql"
+		echo "Pid Details:"
+		printPidDetails "/usr/bin/proxysql -c /etc/proxysql.cnf -D /var/lib/proxysql"
+	elif [[ $1 == "mysql" || $1 == "y" ]] \
+		&& [[ -f /var/run/mysql/mysql.pid ]]; then
+		echo "Mysql Pid:"
+		cat /var/run/mysql/mysql.pid
+		echo "Pid Details:"
+		ps -aef | grep `cat /var/run/mysql/mysql.pid` | grep -v grep
+	elif [[ $1 == "zoo" || $1 == "z" ]] \
+		&& [[ -f /var/run/zookeeper/zookeeper-server.pid ]]; then
+		echo "zookeeper Pid:"
+		cat /var/run/zookeeper/zookeeper-server.pid
+		echo "Pid Details:"
+		ps -aef | grep `cat /var/run/zookeeper/zookeeper-server.pid` | grep -v grep
  	fi
 }
 
 function printPid() {
-	ps -aef | grep "$1" | grep -v grep | awk '{print $2}'
+	ps -aef | grep "$1" | grep -v grep | awk '{print "\t" $2}'
+}
+
+function printPidDetails() {
+	ps -aef | grep "$1" | grep -v grep
 }
 
 function printPidParentPidName() {
-	ps -aef | grep "$1" | grep -v grep | awk '{print $2 "\t" $3}'
+	ps -aef | grep "$1" | grep -v grep | awk '{print "\t" $2 "\t" $3}'
 }
-
 
 #alias
 alias lvs='clear; tail -1000f /opt/vsd/jboss/standalone/log/server.log'
