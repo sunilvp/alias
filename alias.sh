@@ -78,3 +78,5 @@ alias esslog='/opt/ejabberd/bin/ejabberdctl set_loglevel 3'
 alias xnodes='/opt/vsd/tools/xmpp_client.py nodes'
 alias xping='/opt/vsd/tools/xmpp_client.py -u cna -p cnauser -t ping subscriptions'
 alias xcnajid='/opt/vsd/tools/xmpp_client.py -t cna_discover_jid nodes'
+
+alias iopen='function _iptables(){ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;}; _iptables'
