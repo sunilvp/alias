@@ -101,6 +101,8 @@ alias le='clear; tail -1000f /opt/ejabberd/logs/ejabberd.log'
 #monit stop start restart
 alias mssj='monit stop jboss'
 alias msj='monit start jboss'
+alias mssa='monit stop activemq'
+alias msa='monit start activemq'
 alias mrj='monit restart jboss'
 alias mssm='monit stop mediator'
 alias msm='monit start mediator'
