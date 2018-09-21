@@ -12,6 +12,54 @@ myenv ( )
 	fi
 }
 
+function getPid() {
+	if [[ $1 == "amq" ]]; then
+		echo "Activemq Pid:"
+		printPid "activemq.jar start"
+        elif [[ $1 == "jboss" ]]; then
+    	        echo "Jboss Pid:"
+		printPid "jboss.server.base.dir=/opt/vsd/jboss/standalone"
+	elif [[ $1 == "mysql" ]] \
+		&& [[ -f /var/run/mysql/mysql.pid ]]; then
+		echo "Mysql Pid:"
+		cat /var/run/mysql/mysql.pid
+	elif [[ $1 == "zoo" ]] \
+		&& [[ -f /var/run/zookeeper/zookeeper-server.pid ]]; then
+		echo "zookeeper Pid:"
+		cat /var/run/zookeeper/zookeeper-server.pid
+	elif [[ $1 == "ej" ]]; then
+		echo "Ejabberd Pid:"
+		printPid "/opt/ejabberd/bin/beam.smp"
+	elif [[ $1 == "tca" ]]; then
+		echo "TCA Pid:"
+		printPid "AREServer"
+	elif [[ $1 == "stats" ]]; then
+		echo "Stats Pid:"
+		printPid "StatsCollectorServer"
+	elif [[ $1 == "key" ]]; then
+		echo "Keyserver Pid:"
+		printPid "KeyServerController"
+	elif [[ $1 == "infi" ]]; then
+		echo "Infinispan Pid:"
+		printPid "infinispan/modules"
+	elif [[ $1 == "med" ]]; then
+		echo "Mediator Pid:"
+		printPid "MediationController"	
+	elif [[ $1 == "proxysql" ]]; then
+		echo "Proxysql Pid:"
+		printPidParentPidName "/usr/bin/proxysql -c /etc/proxysql.cnf -D /var/lib/proxysql"	
+ 	fi
+}
+
+function printPid() {
+	ps -aef | grep "$1" | grep -v grep | awk '{print $2}'
+}
+
+function printPidParentPidName() {
+	ps -aef | grep "$1" | grep -v grep | awk '{print $2 "\t" $3}'
+}
+
+
 #alias
 alias lvs='clear; tail -1000f /opt/vsd/jboss/standalone/log/server.log'
 alias lvv='clear; tail -1000f /opt/vsd/jboss/standalone/log/vsdserver.log'
@@ -81,3 +129,5 @@ alias xping='/opt/vsd/tools/xmpp_client.py -u cna -p cnauser -t ping subscriptio
 alias xcnajid='/opt/vsd/tools/xmpp_client.py -t cna_discover_jid nodes'
 
 alias iopen='function _iptables(){ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;}; _iptables'
+
+alias pid='getPid $1'
