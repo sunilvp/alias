@@ -49,6 +49,7 @@ alias mrntp='date; service ntpd stop ; sleep 1 ; service ntpd start ; date; watc
 
 alias cmysql='echo "check Mysql :"; mysql -e "select 1"'
 alias vpass='cat /opt/vsd/install/vsd_password.ini'
+alias vmonit='monit summary'
 
 #proxysql check commands
 alias psql='function _proxysql(){ myenv ;mysql -u admin -p$ENV_VSD_PROXYSQLPWD -h 127.0.0.1 -P 6032 -e "$1"; }; _proxysql'
