@@ -124,6 +124,8 @@ alias mrntp='date; service ntpd stop ; sleep 1 ; service ntpd start ; date; watc
 alias mck='/opt/vsd/sysmon/monit/keyserver-status.sh'
 alias mci='/opt/vsd/sysmon/infinispanStatus.sh'
 alias mcic='/opt/vsd/sysmon/infinispanStatus.sh -c'
+alias mcz='/opt/vsd/sysmon/monit/datanode-zookeeper-server-status.sh'
+alias mczc='/opt/vsd/sysmon/monit/datanode-zookeeper-cluster-status.sh'
 
 alias cmysql='echo "check Mysql :"; mysql -e "select 1"'
 alias vpass='cat /opt/vsd/install/vsd_password.ini'
