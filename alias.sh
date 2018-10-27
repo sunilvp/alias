@@ -89,14 +89,28 @@ function printPidParentPidName() {
 alias lvs='clear; tail -1000f /opt/vsd/jboss/standalone/log/server.log'
 alias lvv='clear; tail -1000f /opt/vsd/jboss/standalone/log/vsdserver.log'
 alias lvx='clear; tail -1000f /opt/vsd/jboss/standalone/log/xmpp-conn.log'
-alias lvk='clear; tail -1000f /opt/vsd/jboss/standalone/log/keyserver.log'
 alias lz='clear; tail -1000f /opt/vsd/jboss/standalone/log/zfb.log'
+alias lvk='clear; tail -1000f /opt/vsd/logs/keyserver/keyserver.log'
 alias lvm='clear; tail -1000f /opt/vsd/mediator/cna-mediator.log'
 alias lmonit='clear; tail -1000f /var/log/monit.log'
 alias lmysql='clear; tail -1000f /var/lib/mysql/mysqld.log'
 alias linstall='clear; tail -1000f /opt/vsd/logs/install.log'
 alias ldecouple='clear; tail -1000f /opt/vsd/logs/patch.log'
 alias le='clear; tail -1000f /opt/ejabberd/logs/ejabberd.log'
+alias linstall='clear ; tail -1000f /opt/vsd/logs/install.log'
+
+#cd commands
+alias cjboss='cd /opt/vsd/jboss/standalone'
+alias cmediator='cd /opt/vsd/mediator'
+alias cejabberd='cd /opt/ejabberd'
+alias cproxysql='cd /var/lib/proxysql'
+alias cymysql='cd /var/lib/mysql'
+alias ckeyserver='cd /opt/vsd/keyserver'
+alias cinstalllogs='cd /opt/vsd/logs'
+
+#cli's
+alias jcli='/opt/vsd/jboss/bin/jboss-cli.sh'
+alias zcli='/usr/lib/zookeeper/bin/zkCli.sh'
 
 #monit stop start restart
 alias mssj='monit stop jboss'
