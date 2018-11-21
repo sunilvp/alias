@@ -181,3 +181,5 @@ alias xcnajid='/opt/vsd/tools/xmpp_client.py -t cna_discover_jid nodes'
 alias iopen='function _iptables(){ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;}; _iptables'
 
 alias pid='getPid $1'
+
+alias gaccessfailure='grep -v "OPTIONS" /opt/vsd/jboss/standalone/log/web.access/access.log* |grep -v "/me " | grep -v "events" | grep -Ev "HTTP/1.1 201|HTTP/1.1 204|HTTP/1.1 200|HTTP/1.0 200"'
