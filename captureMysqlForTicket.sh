@@ -1,6 +1,20 @@
 #!/bin/bash
 
-if [[ -z $1 || -z $2 ]]; then
+#################################################
+# Please change the following attributes for your purpose:
+#	If mysql root password is changed then execute: export ENV_MYSQL_ROOT_PWD=newpassword and then execute the script.
+#	MY_LOG : log location of mysql log, old release /var/lib/mysqld.log new release /var/log/mysqld.log
+#	
+# Following are the options which has to be passed:
+#	$1  tar_file_name
+#	$2  destination folder in remote machine where it is scp'ed to.
+#	$3  password of the remote machine to where it is scp'ed to.
+#	$4  ip of the remote machine to where it is scp'ed to. 
+#
+# For Sunil Machine:
+# 	./captureMysqlForTicket.sh forPercona /home/sunil/nuage/PTS/proxysql mainstreet 135.227.176.66
+#################################################
+if [[ -z $1 || -z $2 || -z $3 || -z $4 ]]; then
 	echo "No options passed, $1:tar_file_name $2:destination_folder"
 	exit 1
 fi
@@ -49,4 +63,4 @@ tar -cvzf proxysql.tar.gz $COLLECT_PROXYSQL_DIR
 tar -cvzf mysql.tar.gz $COLLECT_MYSQL_DIR
 tar -cvzf $COLLECT_DIR/forPercona_$1.tar.gz $COLLECT_DIR/proxysql.tar.gz $COLLECT_DIR/mysql.tar.gz
 
-sshpass -p mainstreet scp -o "StrictHostKeyChecking no" -r forPercona_$1.tar.gz root@135.227.176.66:$2 
+sshpass -p $3 scp -o "StrictHostKeyChecking no" -r forPercona_$1.tar.gz root@$4:$2 
