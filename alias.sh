@@ -142,9 +142,11 @@ alias mcic='/opt/vsd/sysmon/infinispanStatus.sh -c'
 alias mcz='/opt/vsd/sysmon/monit/datanode-zookeeper-server-status.sh'
 alias mczc='/opt/vsd/sysmon/monit/datanode-zookeeper-cluster-status.sh'
 
+#my commands to perform default operatations
 alias cmysql='echo "check Mysql :"; mysql -e "select 1"'
 alias vpass='cat /opt/vsd/install/vsd_password.ini'
 alias vmonit='monit summary'
+alias vlsof='lsof -i -P | grep $1'
 
 #proxysql check commands
 alias psql='function _proxysql(){ myenv ;mysql -u admin -p$ENV_VSD_PROXYSQLPWD -h 127.0.0.1 -P 6032 -e "$1"; }; _proxysql'
