@@ -182,7 +182,7 @@ alias xping='/opt/vsd/tools/xmpp_client.py -u cna -p cnauser -t ping subscriptio
 alias xcnajid='/opt/vsd/tools/xmpp_client.py -t cna_discover_jid nodes'
 
 alias iopen='function _iptables(){ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;}; _iptables'
-alisa ip='ifconfig'
+alias ip='ifconfig'
 
 alias pid='getPid $1'
 
