@@ -85,18 +85,19 @@ function printPidParentPidName() {
 	ps -aef | grep "$1" | grep -v grep | awk '{print "\t" $2 "\t" $3}'
 }
 
-#alias
+#alias for logs
 alias lvs='clear; tail -1000f /opt/vsd/jboss/standalone/log/server.log'
 alias lvv='clear; tail -1000f /opt/vsd/jboss/standalone/log/vsdserver.log'
 alias lvx='clear; tail -1000f /opt/vsd/jboss/standalone/log/xmpp-conn.log'
-alias lz='clear; tail -1000f /opt/vsd/jboss/standalone/log/zfb.log'
+alias lvw='clear; tail -1000f /opt/vsd/jboss/standalone/log/web.access/access.log'
+alias lvz='clear; tail -1000f /opt/vsd/jboss/standalone/log/zfb.log'
 alias lvk='clear; tail -1000f /opt/vsd/logs/keyserver/keyserver.log'
 alias lvm='clear; tail -1000f /opt/vsd/mediator/cna-mediator.log'
 alias lmonit='clear; tail -1000f /var/log/monit.log'
 alias lmysql='clear; tail -1000f /var/log/mysql/mysqld.log'
 alias linstall='clear; tail -1000f /opt/vsd/logs/install.log'
 alias ldecouple='clear; tail -1000f /opt/vsd/logs/patch.log'
-alias le='clear; tail -1000f /opt/ejabberd/logs/ejabberd.log'
+alias lve='clear; tail -1000f /opt/ejabberd/logs/ejabberd.log'
 alias linstall='clear ; tail -1000f /opt/vsd/logs/install.log'
 
 #cd commands
