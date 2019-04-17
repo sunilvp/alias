@@ -149,6 +149,8 @@ alias vpass='cat /opt/vsd/install/vsd_password.ini'
 alias vmonit='monit summary'
 alias vlsof='lsof -i -P | grep $1'
 alias viptables='iptables -nL | grep $1'
+alias vstandbymode='echo "StandbyMode:";cat /opt/vsd/install/myenv.sh | grep "ENV_VSD_STANDBY"'
+alias vmonitdir='cat /etc/monitrc | grep -v "^#" | grep include'
 
 #proxysql check commands
 alias psql='function _proxysql(){ myenv ;mysql -u admin -p$ENV_VSD_PROXYSQLPWD -h 127.0.0.1 -P 6032 -e "$1"; }; _proxysql'
