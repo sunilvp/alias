@@ -99,6 +99,7 @@ alias linstall='clear; tail -1000f /opt/vsd/logs/install.log'
 alias ldecouple='clear; tail -1000f /opt/vsd/logs/patch.log'
 alias lve='clear; tail -1000f /opt/ejabberd/logs/ejabberd.log'
 alias linstall='clear ; tail -1000f /opt/vsd/logs/install.log'
+alias lvxmppppush='clear;tail -10000f | grep -v com.alu.cna.cloudmgmt.common.core.xmpp.debugger.XmppClientCustomDebugger  /opt/vsd/logs/install.log | egrep -v "^$"'
 
 #cd commands
 alias cjboss='cd /opt/vsd/jboss/standalone'
