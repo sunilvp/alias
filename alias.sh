@@ -181,6 +181,9 @@ alias elistp='/opt/ejabberd/bin/ejabberdctl list_p1db'
 alias eslog='/opt/ejabberd/bin/ejabberdctl set_loglevel 5'
 alias esslog='/opt/ejabberd/bin/ejabberdctl set_loglevel 3'
 
+#ejbca
+alias ejcas='/opt/vsd/ejbca/bin/ejbca.sh ca listcas'
+
 #xmpp-tool
 alias xnodes='/opt/vsd/tools/xmpp_client.py nodes'
 alias xping='/opt/vsd/tools/xmpp_client.py -u cna -p cnauser -t ping subscriptions'
