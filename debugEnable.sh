@@ -11,6 +11,8 @@ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;
 function modifyMonit()
 {
 sed -i 's/set daemon  60/set daemon  30/' /etc/monitrc;
+sed -i 's/set daemon  60/set daemon  30/' /etc/puppet/modules/cna/templates/monitrc.erb
+sed -i 's/set daemon  60/set daemon  30/' /etc/puppet/modules/monit/templates/monitrc.erb
 }
 
 function debugJboss()
