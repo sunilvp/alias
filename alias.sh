@@ -184,6 +184,8 @@ alias esslog='/opt/ejabberd/bin/ejabberdctl set_loglevel 3'
 
 #ejbca
 alias ejcas='/opt/vsd/ejbca/bin/ejbca.sh ca listcas'
+alias ejend='/opt/vsd/ejbca/bin/ejbca.sh ra listendentities -S 00'
+alias ejexp='mysql --user=root --password="$ENV_MYSQL_ROOT_PWD" ejbca -e "SELECT u.username, c.subjectDN, from_unixtime(floor(expireDate/1000)) expiryDate FROM UserData u, CertificateData c WHERE c.username = u.username AND revocationDate = -1 ORDER BY expiryDate ASC;"'
 
 #xmpp-tool
 alias xnodes='/opt/vsd/tools/xmpp_client.py nodes'
