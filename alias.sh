@@ -70,6 +70,11 @@ function getPid() {
 		cat /var/run/zookeeper/zookeeper-server.pid
 		echo "Pid Details:"
 		ps -aef | grep `cat /var/run/zookeeper/zookeeper-server.pid` | grep -v grep
+	elif [[ $1 == "logstash" || $1 == "l" ]]; then
+		echo "Logstash Pid:"
+		printPid "org.logstash.Logstash --path.settings /etc/logstash"
+		echo "Pid Details:"
+		printPidDetails	"org.logstash.Logstash --path.settings /etc/logstash"
  	fi
 }
 
@@ -191,6 +196,12 @@ alias ejexp='mysql --user=root --password="$ENV_MYSQL_ROOT_PWD" ejbca -e "SELECT
 alias xnodes='/opt/vsd/tools/xmpp_client.py nodes'
 alias xping='/opt/vsd/tools/xmpp_client.py -u cna -p cnauser -t ping subscriptions'
 alias xcnajid='/opt/vsd/tools/xmpp_client.py -t cna_discover_jid nodes'
+
+# logstash
+alias lvl='clear ; tail -1000f /var/log/logstash/logstash-plain.log'
+alias loinstall='cd /usr/share/logstash;  /usr/share/logstash/bin/logstash-plugin install /home/sunil/logstash-filter-nuage_filter_enrichment-1.0.0.gem'
+alias loremove='cd /usr/share/logstash;  /usr/share/logstash/bin/logstash-plugin remove logstash-filter-nuage_filter_enrichment'
+alias locheckplugin='cd /usr/share/logstash; /usr/share/logstash/bin/logstash-plugin list| grep nuage'
 
 alias iopen='function _iptables(){ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;}; _iptables'
 alias ip='ifconfig'
