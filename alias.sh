@@ -211,3 +211,13 @@ alias ip='ifconfig'
 alias pid='getPid $1'
 
 alias gaccessfailure='grep -v "OPTIONS" /opt/vsd/jboss/standalone/log/web.access/access.log* |grep -v "/me " | grep -v "events" | grep -Ev "HTTP/1.1 201|HTTP/1.1 204|HTTP/1.1 200|HTTP/1.0 200"'
+
+# virsh alias
+alias virc='virsh console'
+alias virde='virsh define'
+alias virx='virsh dumpxml'
+alias vire='virsh edit'
+alias vird='virsh destroy'
+alias virs='virsh start'
+alias virl='virsh list'
+alias viru='virsh undefine'
