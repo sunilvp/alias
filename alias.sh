@@ -109,6 +109,8 @@ alias lvxmppppush='clear;tail -10000f | grep -v com.alu.cna.cloudmgmt.common.cor
 
 #cd commands
 alias cjboss='cd /opt/vsd/jboss/standalone'
+alias cjbossd='cd /opt/vsd/jboss/standalone/deployments'
+alias cjbossl='cd /opt/vsd/jboss/standalone/log'
 alias cmediator='cd /opt/vsd/mediator'
 alias cejabberd='cd /opt/ejabberd'
 alias cproxysql='cd /var/lib/proxysql'
