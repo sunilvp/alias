@@ -223,3 +223,14 @@ alias vird='virsh destroy'
 alias virs='virsh start'
 alias virl='virsh list'
 alias viru='virsh undefine'
+
+
+# DEBUG mode
+alias djboss='sed -i "s/^DEBUG_MODE=false/DEBUG_MODE=true/" /opt/vsd/jboss/bin/standalone.sh'
+alias dmed='sed -i "s/^DEBUG_MODE=false/DEBUG_MODE=true/" /etc/init.d/mediator.sh'
+alias dkey='sed -i "s/^DEBUG_MODE=false/DEBUG_MODE=true/" /opt/vsd/keyserver/bin/keyserver.sh'
+alias dall='djboss ; dmed; dkey'
+alias ijboss='iopen 8787'
+alias imem='iopen 5005'
+alias ikey='iopen 5006'
+alias iall='ijboss; imem; ikey'
