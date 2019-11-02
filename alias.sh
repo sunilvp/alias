@@ -235,3 +235,9 @@ alias imem='iopen 5005'
 alias ikey='iopen 5006'
 alias iall='ijboss; imem; ikey'
 alias dport='iall; dall'
+
+#log debug enable le log enable
+alias lemed='/opt/vsd/mediator/runMediatorLogLevel.bash -l DEBUG'
+alias lexmpp='/opt/vsd/bin/debug-jboss xmpp  DEBUG'
+alias levsd='/opt/vsd/bin/debug-jboss vsd DEBUG'
+alias leall='lemed; lexmpp; levsd'
