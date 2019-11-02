@@ -223,3 +223,31 @@ alias vird='virsh destroy'
 alias virs='virsh start'
 alias virl='virsh list'
 alias viru='virsh undefine'
+
+#Setup alias
+_sbrowser( ) { python openBrowser.py $1 ;}
+alias sbrowser="_browser 135.227.176.66 >&/dev/null "
+
+#Alias to open vsd ui or activemq browser
+alias browser='function _fbrowser(){ cd /home/sunil/nuage/PTS/robotWeb;python openBrowser.py "$1" >&/dev/null; }; _fbrowser'
+alias amqbrowser='function _amqbrowser(){ cd /home/sunil/nuage/PTS/robotWeb; python openBrowser.py -p 8161 -P http "$1" >&/dev/null; }; _amqbrowser'
+
+alias myssh='function _myssh(){ ssh-keygen -f "/root/.ssh/known_hosts" -R $1 ; sshpass -p Alcateldc ssh -o "StrictHostKeyChecking no" root@"$1"; }; _myssh'
+alias myscp='function _myscp(){ sshpass -p Alcateldc scp -o "StrictHostKeyChecking no" $1 $2 ; }; _myscp'
+
+alias tmyssh='function _myssh1(){ ssh-keygen -f "/root/.ssh/known_hosts" -R $1 ; sshpass -p tigris ssh -o "StrictHostKeyChecking no" root@"$1"; }; _myssh1'
+alias tmyscp='function _myscp1(){ sshpass -p tigris scp -o "StrictHostKeyChecking no" $1 $2 ; }; _myscp1'
+
+#alias mvninstall='mvn clean install -DskipTests'
+alias cmyssh='function _cmyssh(){ ssh-keygen -f "/root/.ssh/known_hosts" -R $1 ; sshpass -p Alcateldc ssh -o "StrictHostKeyChecking no" root@"$1" $2; }; _cmyssh'
+alias ctmyssh='function _cmyssh1(){ ssh-keygen -f "/root/.ssh/known_hosts" -R $1 ; sshpass -p tigris ssh -o "StrictHostKeyChecking no" root@"$1"; $2; }; _cmyssh1'
+
+VSC_IP=135.227.4.57
+VSD_IP=135.227.4.50
+UTIL_IP=135.227.4.32
+INC_IP=135.227.4.44
+alias avsd='myssh $VSD_IP'
+alias autil='myssh $UTIL_IP'
+alias avsc='sshpass -p admin ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no admin@$VSC_IP'
+alias ainca='sshpass -p Nuage@123! ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no admin@$INC_IP'
+alias aincad='sshpass -p administrator ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no administrator@$INC_IP -p 2222'
