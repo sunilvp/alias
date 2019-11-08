@@ -190,6 +190,7 @@ alias elistc='/opt/ejabberd/bin/ejabberdctl list_cluster'
 alias elistp='/opt/ejabberd/bin/ejabberdctl list_p1db'
 alias eslog='/opt/ejabberd/bin/ejabberdctl set_loglevel 5'
 alias esslog='/opt/ejabberd/bin/ejabberdctl set_loglevel 3'
+alias etopiccout='/opt/ejabberd/bin/ejabberdctl p1db_records_number | grep pubsub_node'
 
 #ejbca
 alias ejcas='/opt/vsd/ejbca/bin/ejbca.sh ca listcas'
