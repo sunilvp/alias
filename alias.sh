@@ -63,13 +63,13 @@ function getPid() {
 		echo "Mysql Pid:"
 		cat /var/run/mysql/mysql.pid
 		echo "Pid Details:"
-		ps -aef | grep `cat /var/run/mysql/mysql.pid` | grep -v grep
+		ps -eo pid,lstart,cmd | grep `cat /var/run/mysql/mysql.pid` | grep -v grep
 	elif [[ $1 == "zoo" || $1 == "z" ]] \
 		&& [[ -f /var/run/zookeeper/zookeeper-server.pid ]]; then
 		echo "zookeeper Pid:"
 		cat /var/run/zookeeper/zookeeper-server.pid
 		echo "Pid Details:"
-		ps -aef | grep `cat /var/run/zookeeper/zookeeper-server.pid` | grep -v grep
+		ps -eo pid,lstart,cmd | grep `cat /var/run/zookeeper/zookeeper-server.pid` | grep -v grep
 	elif [[ $1 == "logstash" || $1 == "l" ]]; then
 		echo "Logstash Pid:"
 		printPid "org.logstash.Logstash --path.settings /etc/logstash"
@@ -83,7 +83,7 @@ function printPid() {
 }
 
 function printPidDetails() {
-	ps -aef | grep "$1" | grep -v grep
+	ps -eo pid,lstart,cmd | grep "$1" | grep -v grep
 }
 
 function printPidParentPidName() {
