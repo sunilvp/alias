@@ -192,6 +192,9 @@ alias elistp='/opt/ejabberd/bin/ejabberdctl list_p1db'
 alias eslog='/opt/ejabberd/bin/ejabberdctl set_loglevel 5'
 alias esslog='/opt/ejabberd/bin/ejabberdctl set_loglevel 3'
 alias etopiccout='/opt/ejabberd/bin/ejabberdctl p1db_records_number | grep pubsub_node'
+alias ejstatus='/opt/vsd/bin/ejmode status'
+alias ejallow='/opt/vsd/bin/ejmode allow'
+alias ejreq='/opt/vsd/bin/ejmode require'
 
 #ejbca
 alias ejcas='/opt/vsd/ejbca/bin/ejbca.sh ca listcas'
