@@ -72,9 +72,9 @@ function getPid() {
 		ps -eo pid,lstart,cmd | grep `cat /var/run/zookeeper/zookeeper-server.pid` | grep -v grep
 	elif [[ $1 == "logstash" || $1 == "l" ]]; then
 		echo "Logstash Pid:"
-		printPid "org.logstash.Logstash --path.settings /etc/logstash"
+		printPid "org.logstash.Logstash --path.settings /opt/vsd/logstash/config"
 		echo "Pid Details:"
-		printPidDetails	"org.logstash.Logstash --path.settings /etc/logstash"
+		printPidDetails	"org.logstash.Logstash --path.settings /opt/vsd/logstash/config"
  	fi
 }
 
@@ -207,10 +207,16 @@ alias xping='/opt/vsd/tools/xmpp_client.py -u cna -p cnauser -t ping subscriptio
 alias xcnajid='/opt/vsd/tools/xmpp_client.py -t cna_discover_jid nodes'
 
 # logstash
-alias lvl='clear ; tail -1000f /var/log/logstash/logstash-plain.log'
-alias loinstall='cd /usr/share/logstash;  /usr/share/logstash/bin/logstash-plugin install /home/sunil/logstash-filter-nuage_filter_enrichment-1.0.0.gem'
-alias loremove='cd /usr/share/logstash;  /usr/share/logstash/bin/logstash-plugin remove logstash-filter-nuage_filter_enrichment'
-alias locheckplugin='cd /usr/share/logstash; /usr/share/logstash/bin/logstash-plugin list| grep nuage'
+alias lvl1='clear ; tail -1000f /var/log/logstash/logstash-plain.log'
+alias loinstall1='cd /usr/share/logstash;  /usr/share/logstash/bin/logstash-plugin install /home/sunil/logstash-filter-nuage_filter_enrichment-1.0.0.gem'
+alias loremove1='cd /usr/share/logstash;  /usr/share/logstash/bin/logstash-plugin remove logstash-filter-nuage_filter_enrichment'
+alias locheckplugin1='cd /usr/share/logstash; /usr/share/logstash/bin/logstash-plugin list| grep nuage'
+
+#logstash_new
+alias lvl='clear ; tail -1000f /opt/vsd/logstash/logs/logstash-plain.log'
+alias loinstall='cd /opt/vsd/logstash;  /opt/vsd/logstash/bin/logstash-plugin install /home/sunil/logstash-filter-nuage_filter_enrichment-1.0.0.gem'
+alias loremove='cd /opt/vsd/logstash;  /opt/vsd/logstash/bin/logstash-plugin remove logstash-filter-nuage_filter_enrichment'
+alias locheckplugin='cd /usr/share/logstash; /opt/vsd/logstash/bin/logstash-plugin list| grep nuage'
 
 alias iopen='function _iptables(){ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;}; _iptables'
 alias ip='ifconfig'
