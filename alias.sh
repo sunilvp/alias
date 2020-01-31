@@ -216,7 +216,7 @@ alias locheckplugin1='cd /usr/share/logstash; /usr/share/logstash/bin/logstash-p
 alias lvl='clear ; tail -1000f /opt/vsd/logstash/logs/logstash-plain.log'
 alias loinstall='cd /opt/vsd/logstash;  /opt/vsd/logstash/bin/logstash-plugin install /home/sunil/logstash-filter-nuage_filter_enrichment-1.0.0.gem'
 alias loremove='cd /opt/vsd/logstash;  /opt/vsd/logstash/bin/logstash-plugin remove logstash-filter-nuage_filter_enrichment'
-alias locheckplugin='cd /usr/share/logstash; /opt/vsd/logstash/bin/logstash-plugin list| grep nuage'
+alias locheckplugin='cd /opt/vsd/logstash; /opt/vsd/logstash/bin/logstash-plugin list| grep nuage'
 
 alias iopen='function _iptables(){ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;}; _iptables'
 alias ip='ifconfig'
