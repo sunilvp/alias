@@ -151,6 +151,7 @@ alias mci='/opt/vsd/sysmon/infinispanStatus.sh'
 alias mcic='/opt/vsd/sysmon/infinispanStatus.sh -c'
 alias mcz='/opt/vsd/sysmon/monit/datanode-zookeeper-server-status.sh'
 alias mczc='/opt/vsd/sysmon/monit/datanode-zookeeper-cluster-status.sh'
+alias mcl='/opt/vsd/sysmon/logstash-status.py'
 
 #my commands to perform default operatations
 alias cmysql='echo "check Mysql :"; mysql -e "select 1"'
@@ -217,6 +218,8 @@ alias lvl='clear ; tail -1000f /opt/vsd/logstash/logs/logstash-plain.log'
 alias loinstall='cd /opt/vsd/logstash;  /opt/vsd/logstash/bin/logstash-plugin install /home/sunil/logstash-filter-nuage_filter_enrichment-1.0.0.gem'
 alias loremove='cd /opt/vsd/logstash;  /opt/vsd/logstash/bin/logstash-plugin remove logstash-filter-nuage_filter_enrichment'
 alias locheckplugin='cd /opt/vsd/logstash; /opt/vsd/logstash/bin/logstash-plugin list --verbose| grep nuage'
+alias lomonit='cat /opt/vsd/logstash/lsmon.monit'
+alias lvls='clear ; tail -1000f /opt/vsd/logstash/logs/syslog_collector.log'
 
 alias iopen='function _iptables(){ iptables -I INPUT -p tcp -m tcp --dport $1 -j ACCEPT ;}; _iptables'
 alias ip='ifconfig'
